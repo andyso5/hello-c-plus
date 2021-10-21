@@ -39,7 +39,21 @@ int main()
     it++;
     cout << "distance of iterator: " << it-a.begin() << endl;
     // 显然C++对iterator的++与+/-行为进行了重构
+
+    a.clear();
+    cout << "size after clear: " << a.size() << endl;
+    cout << "capacity after clear: " << a.capacity() << endl;
     
+    a.assign(5, 1);
+    // 第一个为
+    a.insert(a.begin(), 3, 250);
+    for (vector<int>::iterator it=a.begin(); it!=a.end();it++)
+    {
+        cout << "a"<< "[" << it - a.begin() << "]" << " = " << *it << endl;
+    }
+    a.insert(a.begin() + 2, 300);
+    vector<int> another = {9,9,9};
+    a.insert(a.end()-1, another.begin(), another.end());
     return 0;
 }
 /*
@@ -57,6 +71,12 @@ int main()
 5. vector的重要概念
     * vector中有三个指针来保持状态， start | finish | end_of_storage
     * start --> finish是size的返回结果, start --> end_of_storage 是capacity的返回结果
+
+6. insert
+    * http://www.cplusplus.com/reference/vector/vector/insert/
+    * 第一个位置是iterator
+    * 当只有两个参数时， 直接插入后面的值
+    * 当有三个参数， 第二个是整数n时， 将第三个参数插入n遍
 
 STL vector push_back详解
 https://www.cnblogs.com/yao2yaoblog/p/7170239.html
