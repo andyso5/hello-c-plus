@@ -8,7 +8,7 @@ int main()
         cout << a[i] << ' ';
     }
     cout<<endl;
-    float b[4] = {1}; // 均初始化
+    float b[4] = {1}; // 均初始化, 没有初始化的地方为0
     for (int i=0; i<4; i++) {
         cout << b[i] << ' ';
     }
@@ -21,5 +21,11 @@ int main()
     float p[4] {}; // 可以省略=
     bool x = '\0'==0;
     cout <<  x << endl;
+
+    cout<<endl;
+    float d[4] {1}; // 可以省略=
+    for (int i=0; i<4;i++) {
+        cout << d[i] << endl;
+    }
 
 }
